@@ -28,7 +28,7 @@ export default function Resources() {
           height={500}
         />
       </div>
-      <div className="text-center my-4">
+      <div className="flex-start my-4">
         <Link href="/resource/newResource" passHref>
           <Button variant="primary">Add New Resource</Button>
         </Link>
