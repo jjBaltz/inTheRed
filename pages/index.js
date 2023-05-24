@@ -1,23 +1,38 @@
-// import { Button } from 'react-bootstrap'; // TODO: COMMENT IN FOR AUTH
-// import { signOut } from '../utils/auth'; // TODO: COMMENT IN FOR AUTH
-// import { useAuth } from '../utils/context/authContext'; // TODO: COMMENT IN FOR AUTH
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
+import { useAuth } from '../utils/context/authContext';
+import { getSubmittedEntries } from '../api/entriesData';
+import User from '../components/User';
+import EntryCard from '../components/EntryCard';
+import SkillChart from '../components/SkillChart';
 
 function Home() {
-  // const { user } = useAuth(); // TODO: COMMENT IN FOR AUTH
+  const [entries, setEntries] = useState([]);
+  const { user } = useAuth();
 
-  const user = { displayName: 'Dr. T' }; // TODO: COMMENT OUT FOR AUTH
+  const getLatest = () => {
+    getSubmittedEntries(user.uid).then(setEntries).slice(-4);
+  };
+
+  useEffect(() => {
+    getLatest();
+  }, []);
+
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.displayName}! </h1>
-    </div>
+    <>
+      <User userObj={user} />
+      <Link href="/entries/newEntry" passHref>
+        <Button variant="primary">New Entry</Button>
+      </Link>
+      <div className="d-flex flex-wrap">
+        {entries.map((entry) => (
+          <EntryCard key={entry.firebaseKey} entryObj={entry} onUpdate={getLatest} />
+        ))}
+      </div>
+      <SkillChart />
+    </>
   );
 }
 
