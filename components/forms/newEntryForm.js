@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import RangeSlider from '../RangeSlider';
 import { useAuth } from '../../utils/context/authContext';
 import { getDraftedEntries, updateEntry, createEntry } from '../../api/entriesData';
 
@@ -63,6 +64,10 @@ function EntryForm({ obj }) {
           onChange={handleChange}
           required
         />
+      </FloatingLabel>
+
+      <FloatingLabel label="rangeSlider">
+        <RangeSlider />
       </FloatingLabel>
 
       {/* DESCRIPTION TEXTAREA  */}

@@ -6,7 +6,7 @@ import { useAuth } from '../utils/context/authContext';
 import { getSubmittedEntries } from '../api/entriesData';
 import User from '../components/User';
 import EntryCard from '../components/EntryCard';
-import SkillChart from '../components/SkillChart';
+// import SkillChart from '../components/SkillChart';
 
 function Home() {
   const [entries, setEntries] = useState([]);
@@ -31,7 +31,7 @@ function Home() {
           <EntryCard key={entry.firebaseKey} entryObj={entry} onUpdate={getLatest} />
         ))}
       </div>
-      <SkillChart />
+      {/* <SkillChart /> */}
     </>
   );
 }
