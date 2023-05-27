@@ -23,7 +23,9 @@ function EntryCard({ entryObj, onUpdate }) {
         <p className="card-text">{entryObj.social}</p>
         <p className="card-text">{entryObj.description}</p>
         <Link href={`/entry/${entryObj.firebaseKey}`} passHref>
-          <Button variant="success" className="m-2">VIEW</Button>
+          <Button variant="success" className="m-2">
+            <i className="bi bi-arrow-up-right-square" />
+          </Button>
         </Link>
         <Button variant="danger" onClick={deleteThisEntry} className="m-2">
           <i className="bi bi-trash" />

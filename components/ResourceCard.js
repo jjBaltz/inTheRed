@@ -18,13 +18,17 @@ function ResourceCard({ resourceObj, onUpdate }) {
         <Card.Title>{resourceObj.title}</Card.Title>
         <p className="card-text bold">{resourceObj.favorite && <span>Favorite<br /></span> } {resourceObj.description}</p>
         <Link href={`/resource/${resourceObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="primary" className="m-2">
+            <i className="bi bi-arrow-up-right-square" />
+          </Button>
         </Link>
         <Link href={`/resource/edit/${resourceObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
+          <Button variant="info">
+            <i className="bi bi-pencil-square" />
+          </Button>
         </Link>
         <Button variant="danger" onClick={deleteThisResource} className="m-2">
-          DELETE
+          <i className="bi bi-trash" />
         </Button>
       </Card.Body>
     </Card>
