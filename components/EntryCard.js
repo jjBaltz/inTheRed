@@ -26,7 +26,7 @@ function EntryCard({ entryObj, onUpdate }) {
           <Button variant="success" className="m-2">VIEW</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisEntry} className="m-2">
-          DELETE
+          <i className="bi bi-trash" />
         </Button>
       </Card.Body>
     </Card>
