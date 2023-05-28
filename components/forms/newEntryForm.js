@@ -50,9 +50,46 @@ function EntryForm({ obj }) {
     }
   };
 
+  const [value, setValue] = useState(0);
+
   return (
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
+
+      <FloatingLabel id="range1">
+        <RangeSlider
+          value={value}
+          onChange={(e) => setValue(e.target.valueAsNumber)}
+        />
+      </FloatingLabel>
+
+      <FloatingLabel id="range2">
+        <RangeSlider
+          value={value}
+          onChange={(e) => setValue(e.target.valueAsNumber)}
+        />
+      </FloatingLabel>
+
+      <FloatingLabel id="range3">
+        <RangeSlider
+          value={value}
+          onChange={(e) => setValue(e.target.valueAsNumber)}
+        />
+      </FloatingLabel>
+
+      <FloatingLabel id="range4">
+        <RangeSlider
+          value={value}
+          onChange={(e) => setValue(e.target.valueAsNumber)}
+        />
+      </FloatingLabel>
+
+      <FloatingLabel id="range5">
+        <RangeSlider
+          value={value}
+          onChange={(e) => setValue(e.target.valueAsNumber)}
+        />
+      </FloatingLabel>
 
       {/* TITLE INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Entry Title" className="mb-3">
@@ -66,16 +103,12 @@ function EntryForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel label="rangeSlider">
-        <RangeSlider />
-      </FloatingLabel>
-
       {/* DESCRIPTION TEXTAREA  */}
       <FloatingLabel controlId="floatingTextarea" label="Description" className="mb-3">
         <Form.Control
           as="textarea"
           placeholder="Description"
-          style={{ height: '100px' }}
+          style={{ height: '300px' }}
           name="description"
           value={formInput.description}
           onChange={handleChange}
@@ -107,6 +140,11 @@ function EntryForm({ obj }) {
 
 EntryForm.propTypes = {
   obj: PropTypes.shape({
+    food: PropTypes.number,
+    water: PropTypes.number,
+    energy: PropTypes.number,
+    mood: PropTypes.number,
+    social: PropTypes.number,
     title: PropTypes.string,
     description: PropTypes.string,
     favorite: PropTypes.bool,

@@ -23,13 +23,13 @@ export default function NavBarAuth() {
             <Link passHref href="/resources">
               <Nav.Link>Resources</Nav.Link>
             </Link>
-            <Link passHref href="/newResource">
+            <Link passHref href="/resource/newResource">
               <Nav.Link>Add New Resource</Nav.Link>
             </Link>
             <Link passHref href="/folders">
               <Nav.Link>Journal</Nav.Link>
             </Link>
-            <Link passHref href="/newEntry">
+            <Link passHref href="/entry/newEntry">
               <Nav.Link>New Entry</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>

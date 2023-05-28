@@ -14,8 +14,6 @@ function RangeSlider() {
         type="range"
         min={0}
         max={100}
-        value={value}
-        onChange={(e) => setValue(e.target.valueAsNumber)}
       />
     </div>
   );

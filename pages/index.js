@@ -13,7 +13,10 @@ function Home() {
   const { user } = useAuth();
 
   const getLatest = () => {
-    getSubmittedEntries(user.uid).then(setEntries).slice(-4);
+    getSubmittedEntries(user.uid).then((returnedEntries) => {
+      const newest = returnedEntries.slice(-4);
+      setEntries(newest);
+    });
   };
 
   useEffect(() => {
@@ -23,7 +26,7 @@ function Home() {
   return (
     <>
       <User userObj={user} />
-      <Link href="/entries/newEntry" passHref>
+      <Link href="/entry/newEntry" passHref>
         <Button variant="primary">New Entry</Button>
       </Link>
       <div className="d-flex flex-wrap">
