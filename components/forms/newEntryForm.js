@@ -50,7 +50,7 @@ function EntryForm({ obj }) {
     }
   };
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(initialState);
 
   return (
     <Form onSubmit={handleSubmit}>

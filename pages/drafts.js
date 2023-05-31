@@ -3,19 +3,19 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
-import { getSubmittedEntries } from '../api/entriesData';
+import { getDraftedEntries } from '../api/entriesData';
 import EntryCard from '../components/EntryCard';
 
-export default function Entries() {
+export default function Drafts() {
   const { user } = useAuth();
-  const [submitted, setSubmitted] = useState([]);
+  const [drafts, setDrafts] = useState([]);
 
-  const getSubmitted = () => {
-    getSubmittedEntries(user.uid).then(setSubmitted);
+  const getDrafts = () => {
+    getDraftedEntries(user.uid).then(setDrafts);
   };
 
   useEffect(() => {
-    getSubmitted();
+    getDrafts();
   }, []);
 
   return (
@@ -25,8 +25,8 @@ export default function Entries() {
           <Button variant="primary">Add New Entry</Button>
         </Link>
         <div className="text-center my-4 d-flex flex-wrap">
-          {submitted.map((submit) => (
-            <EntryCard key={submit.firebaseKey} submitObj={submit} onUpdate={getSubmitted} />
+          {drafts.map((draft) => (
+            <EntryCard key={draft.firebaseKey} draftObj={draft} onUpdate={getDrafts} />
           ))}
         </div>
       </div>
