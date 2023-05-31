@@ -12,11 +12,8 @@ const getSubmittedEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
+      const bySubmitted = Object.values(data).filter((submitted) => submitted.isSubmitted);
+      resolve(bySubmitted);
     })
     .catch(reject);
 });
@@ -30,11 +27,8 @@ const getDraftedEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
+      const byDrafted = Object.values(data).filter((draft) => draft.isSubmitted);
+      resolve(byDrafted);
     })
     .catch(reject);
 });
