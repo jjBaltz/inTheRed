@@ -37,11 +37,11 @@ function ResourceForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateResource(formInput)
-        .then(() => router.push('/'));
+        .then(() => router.push('/resources'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createResource(payload).then(() => {
-        router.push('/');
+        router.push('/resources');
       });
     }
   };

@@ -29,6 +29,9 @@ function Home() {
       <Link href="/entry/newEntry" passHref>
         <Button variant="primary">New Entry</Button>
       </Link>
+      <Link href="/folders" passHref>
+        <Button variant="primary">Folders</Button>
+      </Link>
       <div className="d-flex flex-wrap">
         {entries.map((entry) => (
           <EntryCard key={entry.firebaseKey} entryObj={entry} onUpdate={getLatest} />
