@@ -26,7 +26,7 @@ export default function Entries() {
         </Link>
         <div className="text-center my-4 d-flex flex-wrap">
           {submitted.map((submit) => (
-            <EntryCard key={submit.firebaseKey} submitObj={submit} onUpdate={getSubmitted} />
+            <EntryCard key={submit.firebaseKey} entryObj={submit} onUpdate={getSubmitted} />
           ))}
         </div>
       </div>
