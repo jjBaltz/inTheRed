@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import { getDraftedEntries } from '../api/entriesData';
-import EntryCard from '../components/EntryCard';
+import DraftCard from '../components/DraftCard';
 
 export default function Drafts() {
   const { user } = useAuth();
@@ -26,7 +26,7 @@ export default function Drafts() {
         </Link>
         <div className="text-center my-4 d-flex flex-wrap">
           {drafts.map((draft) => (
-            <EntryCard key={draft.firebaseKey} draftObj={draft} onUpdate={getDrafts} />
+            <DraftCard key={draft.firebaseKey} draftObj={draft} onUpdate={getDrafts} />
           ))}
         </div>
       </div>

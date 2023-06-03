@@ -5,24 +5,24 @@ import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deleteEntry } from '../api/entriesData';
 
-function EntryCard({ entryObj, onUpdate }) {
+function DraftCard({ draftObj, onUpdate }) {
   const deleteThisEntry = () => {
-    if (window.confirm(`Delete ${entryObj.title}?`)) {
-      deleteEntry(entryObj.firebaseKey).then(() => onUpdate());
+    if (window.confirm(`Delete ${draftObj.title}?`)) {
+      deleteEntry(draftObj.firebaseKey).then(() => onUpdate());
     }
   };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
-        <Card.Title>{entryObj.title}</Card.Title>
+        <Card.Title>{draftObj.title}</Card.Title>
         {/* <p className="card-text">{entryObj.food}</p>
         <p className="card-text">{entryObj.water}</p>
         <p className="card-text">{entryObj.energy}</p>
         <p className="card-text">{entryObj.mood}</p>
         <p className="card-text">{entryObj.social}</p> */}
-        <p className="card-text">{entryObj.description}</p>
-        <Link href={`/entry/${entryObj.firebaseKey}`} passHref>
+        <p className="card-text">{draftObj.description}</p>
+        <Link href={`/entry/${draftObj.firebaseKey}`} passHref>
           <Button variant="success" className="m-2">
             <i className="bi bi-arrow-up-right-square" />
           </Button>
@@ -35,8 +35,8 @@ function EntryCard({ entryObj, onUpdate }) {
   );
 }
 
-EntryCard.propTypes = {
-  entryObj: PropTypes.shape({
+DraftCard.propTypes = {
+  draftObj: PropTypes.shape({
     title: PropTypes.string,
     food: PropTypes.number,
     water: PropTypes.number,
@@ -50,4 +50,4 @@ EntryCard.propTypes = {
   onUpdate: PropTypes.func.isRequired,
 };
 
-export default EntryCard;
+export default DraftCard;

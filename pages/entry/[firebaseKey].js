@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { viewEntryDetails } from '../../api/mergedData';
+import { getSingleEntry } from '../../api/entriesData';
 
 export default function ViewEntry() {
   const [entryDetails, setEntryDetails] = useState({});
@@ -10,7 +10,7 @@ export default function ViewEntry() {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    viewEntryDetails(firebaseKey).then(setEntryDetails);
+    getSingleEntry(firebaseKey).then(setEntryDetails);
   }, [firebaseKey]);
 
   return (

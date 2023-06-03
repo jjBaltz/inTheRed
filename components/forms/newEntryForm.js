@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
-import RangeSlider from '../RangeSlider';
+// import RangeSlider from '../RangeSlider';
 import { useAuth } from '../../utils/context/authContext';
-import { getDraftedEntries, updateEntry, createEntry } from '../../api/entriesData';
+import {
+  getDraftedEntries, updateEntry, createEntry,
+} from '../../api/entriesData';
 
 const initialState = {
   title: '',
@@ -16,9 +18,10 @@ const initialState = {
   mood: 0,
   social: 0,
   description: '',
+  isSubmitted: false,
 };
 
-function EntryForm({ obj }) {
+function EntryForm({ entryObj, draftObj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
@@ -26,8 +29,8 @@ function EntryForm({ obj }) {
   useEffect(() => {
     getDraftedEntries(user.uid).then(setFormInput);
 
-    if (obj.firebaseKey) setFormInput(obj);
-  }, [obj, user]);
+    if (entryObj.firebaseKey) setFormInput(entryObj);
+  }, [entryObj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,57 +42,63 @@ function EntryForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (draftObj.firebaseKey) {
       updateEntry(formInput)
-        .then(() => router.push('/'));
+        .then(() => router.push('/entries'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createEntry(payload).then(() => {
-        router.push('/');
+        router.push('/entries');
       });
     }
   };
 
-  const [value, setValue] = useState(initialState);
+  // const [value, setValue] = useState(0);
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
-
+      <h2 className="text-white mt-5">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
+      {/*
       <FloatingLabel id="range1">
         <RangeSlider
-          value={value}
-          onChange={(e) => setValue(e.target.valueAsNumber)}
+          value={formInput.food}
+          name="food"
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              food: e.target.value,
+            }));
+          }}
         />
       </FloatingLabel>
 
       <FloatingLabel id="range2">
         <RangeSlider
-          value={value}
-          onChange={(e) => setValue(e.target.valueAsNumber)}
+          value={formInput.water}
+          onChange={(e) => setFormInput(e.target.valueAsNumber)}
         />
       </FloatingLabel>
 
       <FloatingLabel id="range3">
         <RangeSlider
-          value={value}
-          onChange={(e) => setValue(e.target.valueAsNumber)}
+          value={formInput.energy}
+          onChange={(e) => setFormInput(e.target.valueAsNumber)}
         />
       </FloatingLabel>
 
       <FloatingLabel id="range4">
         <RangeSlider
-          value={value}
-          onChange={(e) => setValue(e.target.valueAsNumber)}
+          value={formInput.mood}
+          onChange={(e) => setFormInput(e.target.valueAsNumber)}
         />
       </FloatingLabel>
 
       <FloatingLabel id="range5">
         <RangeSlider
-          value={value}
-          onChange={(e) => setValue(e.target.valueAsNumber)}
+          value={formInput.social}
+          onChange={(e) => setFormInput(e.target.valueAsNumber)}
         />
-      </FloatingLabel>
+      </FloatingLabel> */}
 
       {/* TITLE INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Entry Title" className="mb-3">
@@ -133,13 +142,14 @@ function EntryForm({ obj }) {
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Entry</Button>
+      <Button type="submit">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</Button>
+      <Button type="save">{draftObj.firebaseKey ? 'Update' : 'Create'} Draft</Button>
     </Form>
   );
 }
 
 EntryForm.propTypes = {
-  obj: PropTypes.shape({
+  entryObj: PropTypes.shape({
     food: PropTypes.number,
     water: PropTypes.number,
     energy: PropTypes.number,
@@ -149,11 +159,25 @@ EntryForm.propTypes = {
     description: PropTypes.string,
     favorite: PropTypes.bool,
     firebaseKey: PropTypes.string,
+    isSubmitted: PropTypes.bool.isRequired,
+  }),
+  draftObj: PropTypes.shape({
+    food: PropTypes.number,
+    water: PropTypes.number,
+    energy: PropTypes.number,
+    mood: PropTypes.number,
+    social: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    favorite: PropTypes.bool,
+    firebaseKey: PropTypes.string,
+    isSubmitted: PropTypes.bool.isRequired,
   }),
 };
 
 EntryForm.defaultProps = {
-  obj: initialState,
+  entryObj: initialState,
+  draftObj: initialState,
 };
 
 export default EntryForm;

@@ -3,8 +3,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getSubmittedEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="isSubmitted"&equalTo="true"`, {
+const getSubmittedEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -18,8 +18,8 @@ const getSubmittedEntries = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getDraftedEntries = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/entries.json?orderBy="isSubmitted"&equalTo="false"`, {
+const getDraftedEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const getDraftedEntries = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const byDrafted = Object.values(data).filter((draft) => draft.isSubmitted);
+      const byDrafted = Object.values(data).filter((drafts) => drafts.isSubmitted === false);
       resolve(byDrafted);
     })
     .catch(reject);
@@ -79,6 +79,28 @@ const createEntry = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const createDraft = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/entries.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const setcode = { firebaseKey: data.name };
+      fetch(`${endpoint}/entries/${setcode.firebaseKey}.json`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(setcode),
+      }).then(resolve);
+    })
+    .catch(reject);
+});
+
 const updateEntry = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/entries/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -95,6 +117,7 @@ const updateEntry = (payload) => new Promise((resolve, reject) => {
 export {
   updateEntry,
   createEntry,
+  createDraft,
   getSingleEntry,
   deleteEntry,
   getSubmittedEntries,
