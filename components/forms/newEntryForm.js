@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
-// import RangeSlider from '../RangeSlider';
 import { useAuth } from '../../utils/context/authContext';
 import {
   getDraftedEntries, updateEntry, createEntry,
@@ -27,10 +26,10 @@ function EntryForm({ entryObj, draftObj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getDraftedEntries(user.uid).then(setFormInput);
+    getDraftedEntries(user.uid);
 
-    if (entryObj.firebaseKey) setFormInput(entryObj);
-  }, [entryObj, user]);
+    if (draftObj.firebaseKey) setFormInput(draftObj);
+  }, [draftObj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,27 +39,42 @@ function EntryForm({ entryObj, draftObj }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitEntry = (e) => {
     e.preventDefault();
-    if (draftObj.firebaseKey) {
+    if (entryObj.firebaseKey) {
       updateEntry(formInput)
         .then(() => router.push('/entries'));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, uid: user.uid, isSubmitted: true };
       createEntry(payload).then(() => {
         router.push('/entries');
       });
     }
   };
 
-  // const [value, setValue] = useState(0);
+  const handleSubmitDraft = (e) => {
+    e.preventDefault();
+    if (draftObj.firebaseKey) {
+      updateEntry(formInput)
+        .then(() => router.push('/drafts'));
+    } else {
+      const payload = { ...formInput, uid: user.uid };
+      createEntry(payload).then(() => {
+        router.push('/drafts');
+      });
+    }
+  };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={[handleSubmitEntry, handleSubmitDraft]}>
       <h2 className="text-white mt-5">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
-      {/*
-      <FloatingLabel id="range1">
-        <RangeSlider
+
+      <FloatingLabel className="RangeSlider">
+        <input
+          id="range1"
+          type="range"
+          min={0}
+          max={100}
           value={formInput.food}
           name="food"
           onChange={(e) => {
@@ -72,33 +86,73 @@ function EntryForm({ entryObj, draftObj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range2">
-        <RangeSlider
+      <FloatingLabel className="RangeSlider">
+        <input
+          id="range2"
+          type="range"
+          min={0}
+          max={100}
           value={formInput.water}
-          onChange={(e) => setFormInput(e.target.valueAsNumber)}
+          name="water"
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              water: e.target.value,
+            }));
+          }}
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range3">
-        <RangeSlider
+      <FloatingLabel className="RangeSlider">
+        <input
+          id="range3"
+          type="range"
+          min={0}
+          max={100}
           value={formInput.energy}
-          onChange={(e) => setFormInput(e.target.valueAsNumber)}
+          name="energy"
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              energy: e.target.value,
+            }));
+          }}
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range4">
-        <RangeSlider
+      <FloatingLabel className="RangeSlider">
+        <input
+          id="range4"
+          type="range"
+          min={0}
+          max={100}
           value={formInput.mood}
-          onChange={(e) => setFormInput(e.target.valueAsNumber)}
+          name="mood"
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              mood: e.target.value,
+            }));
+          }}
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range5">
-        <RangeSlider
+      <FloatingLabel className="RangeSlider">
+        <input
+          id="range5"
+          type="range"
+          min={0}
+          max={100}
           value={formInput.social}
-          onChange={(e) => setFormInput(e.target.valueAsNumber)}
+          name="social"
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              social: e.target.value,
+            }));
+          }}
         />
-      </FloatingLabel> */}
+      </FloatingLabel>
 
       {/* TITLE INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Entry Title" className="mb-3">
@@ -142,8 +196,8 @@ function EntryForm({ entryObj, draftObj }) {
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</Button>
-      <Button type="save">{draftObj.firebaseKey ? 'Update' : 'Create'} Draft</Button>
+      <Button type="submit" onClick={handleSubmitEntry}>{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</Button>
+      <Button type="submit" onClick={handleSubmitDraft}>{draftObj.firebaseKey ? 'Update' : 'Create'} Draft</Button>
     </Form>
   );
 }

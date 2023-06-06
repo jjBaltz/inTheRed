@@ -16,19 +16,17 @@ function EntryCard({ entryObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
         <Card.Title>{entryObj.title}</Card.Title>
-        {/* <p className="card-text">{entryObj.food}</p>
+        <p className="card-text">{entryObj.food}</p>
         <p className="card-text">{entryObj.water}</p>
         <p className="card-text">{entryObj.energy}</p>
         <p className="card-text">{entryObj.mood}</p>
-        <p className="card-text">{entryObj.social}</p> */}
+        <p className="card-text">{entryObj.social}</p>
         <p className="card-text">{entryObj.description}</p>
         <Link href={`/entry/${entryObj.firebaseKey}`} passHref>
-          <Button variant="success" className="m-2">
-            <i className="bi bi-arrow-up-right-square" />
+          <Button variant="success" className="m-2">VIEW
           </Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisEntry} className="m-2">
-          <i className="bi bi-trash" />
+        <Button variant="danger" onClick={deleteThisEntry} className="m-2">DELETE
         </Button>
       </Card.Body>
     </Card>
