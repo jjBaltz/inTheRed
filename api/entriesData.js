@@ -66,31 +66,18 @@ const createEntry = (payload) => new Promise((resolve, reject) => {
     body: JSON.stringify(payload),
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => {
+      const setcode = { firebaseKey: data.name };
+      fetch(`${endpoint}/entries/${setcode.firebaseKey}.json`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(setcode),
+      }).then(resolve);
+    })
     .catch(reject);
 });
-
-// const createDraft = (payload) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/entries.json`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(payload),
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const setcode = { firebaseKey: data.name };
-//       fetch(`${endpoint}/entries/${setcode.firebaseKey}.json`, {
-//         method: 'PATCH',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(setcode),
-//       }).then(resolve);
-//     })
-//     .catch(reject);
-// });
 
 const updateEntry = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/entries/${payload.firebaseKey}.json`, {

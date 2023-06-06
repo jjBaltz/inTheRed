@@ -27,8 +27,9 @@ function EntryForm({ entryObj, draftObj }) {
 
   useEffect(() => {
     getDraftedEntries(user.uid);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    if (draftObj.firebaseKey) setFormInput(draftObj);
+  }, [draftObj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,9 +69,9 @@ function EntryForm({ entryObj, draftObj }) {
     <Form onSubmit={[handleSubmitEntry, handleSubmitDraft]}>
       <h2 className="text-white mt-5">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
 
-      <FloatingLabel id="range1" className="RangeSlider">
+      <FloatingLabel className="RangeSlider">
         <input
-          className="RangeSlider"
+          id="range1"
           type="range"
           min={0}
           max={100}
@@ -85,9 +86,9 @@ function EntryForm({ entryObj, draftObj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range2">
+      <FloatingLabel className="RangeSlider">
         <input
-          className="RangeSlider"
+          id="range2"
           type="range"
           min={0}
           max={100}
@@ -96,15 +97,15 @@ function EntryForm({ entryObj, draftObj }) {
           onChange={(e) => {
             setFormInput((prevState) => ({
               ...prevState,
-              food: e.target.value,
+              water: e.target.value,
             }));
           }}
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range3">
+      <FloatingLabel className="RangeSlider">
         <input
-          className="RangeSlider"
+          id="range3"
           type="range"
           min={0}
           max={100}
@@ -113,15 +114,15 @@ function EntryForm({ entryObj, draftObj }) {
           onChange={(e) => {
             setFormInput((prevState) => ({
               ...prevState,
-              food: e.target.value,
+              energy: e.target.value,
             }));
           }}
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range4">
+      <FloatingLabel className="RangeSlider">
         <input
-          className="RangeSlider"
+          id="range4"
           type="range"
           min={0}
           max={100}
@@ -130,15 +131,15 @@ function EntryForm({ entryObj, draftObj }) {
           onChange={(e) => {
             setFormInput((prevState) => ({
               ...prevState,
-              food: e.target.value,
+              mood: e.target.value,
             }));
           }}
         />
       </FloatingLabel>
 
-      <FloatingLabel id="range5">
+      <FloatingLabel className="RangeSlider">
         <input
-          className="RangeSlider"
+          id="range5"
           type="range"
           min={0}
           max={100}
@@ -147,7 +148,7 @@ function EntryForm({ entryObj, draftObj }) {
           onChange={(e) => {
             setFormInput((prevState) => ({
               ...prevState,
-              food: e.target.value,
+              social: e.target.value,
             }));
           }}
         />

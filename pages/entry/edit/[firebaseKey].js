@@ -12,5 +12,5 @@ export default function EditEntry() {
     getSingleEntry(firebaseKey).then(setEditItem);
   }, [firebaseKey]);
 
-  return (<EntryForm obj={editItem} />);
+  return (<EntryForm draftObj={editItem} />);
 }

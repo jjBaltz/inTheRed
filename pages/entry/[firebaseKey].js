@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getSingleEntry } from '../../api/entriesData';
 
-export default function ViewEntry() {
+function ViewEntry() {
   const [entryDetails, setEntryDetails] = useState({});
   const router = useRouter();
 
@@ -18,7 +18,7 @@ export default function ViewEntry() {
       <div className="text-black ms-5 details">
         <h5>
           {entryDetails.title}
-          {entryDetails.entryObject?.favorite ? ' ☆' : ''}
+          {/* {entryDetails.entryObject?.favorite ? ' ☆' : ''} */}
         </h5>
         <p className="card-text">{entryDetails.food}</p>
         <p className="card-text">{entryDetails.water}</p>
@@ -31,3 +31,5 @@ export default function ViewEntry() {
     </div>
   );
 }
+
+export default ViewEntry;
