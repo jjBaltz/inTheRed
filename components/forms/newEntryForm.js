@@ -44,6 +44,9 @@ function EntryForm({ entryObj, draftObj }) {
     if (entryObj.firebaseKey) {
       updateEntry(formInput)
         .then(() => router.push('/entries'));
+    } else if (draftObj.firebaseKey) {
+      updateEntry({ ...formInput, isSubmitted: true })
+        .then(() => router.push('/entries'));
     } else {
       const payload = { ...formInput, uid: user.uid, isSubmitted: true };
       createEntry(payload).then(() => {
