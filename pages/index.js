@@ -24,21 +24,23 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className="index">
       <User userObj={user} />
-      <Link href="/entry/newEntry" passHref>
-        <Button variant="primary">New Entry</Button>
-      </Link>
-      <Link href="/folders" passHref>
-        <Button variant="primary">Folders</Button>
-      </Link>
-      <div className="d-flex flex-wrap">
+      <div className="index-buttons">
+        <Link href="/entry/newEntry" passHref>
+          <Button className="index-entry">New Entry</Button>
+        </Link>
+        <Link href="/folders" passHref>
+          <Button className="index-folders">Folders</Button>
+        </Link>
+      </div>
+      <div className="d-flex flex-wrap" id="latest">
         {entries.map((entry) => (
           <EntryCard key={entry.firebaseKey} entryObj={entry} onUpdate={getLatest} />
         ))}
       </div>
       {/* <SkillChart /> */}
-    </>
+    </div>
   );
 }
 

@@ -18,5 +18,41 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: white;
+}
+
+.index {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  padding-top: 50px;
+  margin: 0;
+}
+
+.index-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: absolute;
+  right: 50px;
+}
+
+.index-entry {
+  background: grey;
+  border-color: black;
+  margin: 10px;
+}
+
+.index-folders {
+  background: grey;
+  border-color: black;
+  margin: 10px;
+}
+
+#latest {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 70px 40px 70px 40px;
+  
 }
