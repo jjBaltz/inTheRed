@@ -34,7 +34,7 @@ function Home() {
           <Button className="index-folders">Folders</Button>
         </Link>
       </div>
-      <div className="d-flex flex-wrap" id="latest">
+      <div className="latest">
         {entries.map((entry) => (
           <EntryCard key={entry.firebaseKey} entryObj={entry} onUpdate={getLatest} />
         ))}
