@@ -3,15 +3,17 @@ import Card from 'react-bootstrap/Card';
 
 export default function User({ userObj }) {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={userObj.photoURL} />
-      <Card.Body>
-        <Card.Title>{userObj.displayName}</Card.Title>
-        <Card.Text>
-          {userObj.email}
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="user-card">
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={userObj.photoURL} />
+        <Card.Body>
+          <Card.Title>{userObj.displayName}</Card.Title>
+          <Card.Text>
+            {userObj.email}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
