@@ -164,12 +164,6 @@ body {
   padding: 30px;
 }
 
-.folders {
-  display: flex;
-  flex-direction: row;
-
-}
-
 #folder-newEntry {
   background-color: #C5E3F8;
   border-color: #C5E3F8;
@@ -177,7 +171,13 @@ body {
   /* margin: 30px 30px 30px 0; */
 }
 
+.folderIcons {
+  display: flex;
+  flex-direction: row;
+}
+
 .subText {
   display: flex;
   margin: 0 10px 10px 10px;
+ 
 }
