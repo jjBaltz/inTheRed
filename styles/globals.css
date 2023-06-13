@@ -72,15 +72,14 @@ body {
 
 .entry-card {
   max-width: 250px;
-  padding: px;
   margin: 3px;
   position: relative;
   border-radius: 10px;
-  background: linear-gradient(to bottom, red, orange, yellow, green, blue, purple);
+  background: linear-gradient(to bottom, #F9F999, #6BE0FA, #DDB3FF);
 }
 
 .card-text-f {
-  background-color: #e6a227;
+  background-color: #f6a723;
   color: white;
   font-size: small;
   margin: 3px 0 3px 0;
@@ -88,7 +87,7 @@ body {
 }
 
 .card-text-w {
-  background-color: #27cee6;
+  background-color: #a9dce3;
   color: white;
   font-size: small;
   margin: 3px 0 3px 0;
@@ -96,7 +95,7 @@ body {
 }
 
 .card-text-e {
-  background-color: #16b600;
+  background-color: #8bc349;
   color: white;
   font-size: small;
   margin: 3px 0 3px 0;
@@ -104,7 +103,7 @@ body {
 }
 
 .card-text-m {
-  background-color: #ad4de8;
+  background-color: #B277E2;
   color: white;
   font-size: small;
   margin: 3px 0 3px 0;
@@ -112,7 +111,7 @@ body {
 }
 
 .card-text-s {
-  background-color: #f6d30f;
+  background-color: #E9E16A;
   color: white;
   font-size: small;
   margin: 3px 0 3px 0;
@@ -170,14 +169,38 @@ body {
   justify-content: center;
   /* margin: 30px 30px 30px 0; */
 }
+#folder-newEntry:hover {
+  background: #82B4D6;
+  border-color: #82B4D6;
+}
 
-.folderIcons {
+.folders {
   display: flex;
   flex-direction: row;
 }
 
-.subText {
+.submitted {
   display: flex;
-  margin: 0 10px 10px 10px;
- 
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+}
+
+.drafts {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+}
+
+.newSource {
+  background: #C5E3F8;
+  border-color: #C5E3F8;
+  margin: 10px;
+}
+.newSource:hover {
+  background: #82B4D6;
+  border-color: #82B4D6;
 }
