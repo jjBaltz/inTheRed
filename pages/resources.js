@@ -34,7 +34,7 @@ export default function Resources() {
       </div>
       <div className="flex-start my-4">
         <Link href="/resource/newResource" passHref>
-          <Button variant="primary">Add New Resource</Button>
+          <Button className="newSource">Add New Resource</Button>
         </Link>
         <div className="text-center my-4 d-flex flex-wrap">
           {resources.map((resource) => (
