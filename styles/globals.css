@@ -43,15 +43,23 @@ body {
 }
 
 .index-entry {
-  background: grey;
-  border-color: black;
+  background: #C5E3F8;
+  border-color: #C5E3F8;
   margin: 10px;
+}
+.index-entry:hover {
+  background: #82B4D6;
+  border-color: #82B4D6;
 }
 
 .index-folders {
-  background: grey;
-  border-color: black;
+  background: #e7ccaa;
+  border-color: #e7ccaa;
   margin: 10px;
+}
+.index-folders:hover {
+  background: #b8966e;
+  border-color: #b8966e;
 }
 
 .latest {
@@ -60,6 +68,15 @@ body {
   flex-wrap: wrap;
   align-content: flex-end;
   margin: 70px 40px 70px 40px;
+}
+
+.entry-card {
+  max-width: 250px;
+  padding: px;
+  margin: 3px;
+  position: relative;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, red, orange, yellow, green, blue, purple);
 }
 
 .card-text-f {
@@ -105,17 +122,62 @@ body {
 #trash {
   background-color: white;
   border-color: red;
-  color: red
+  color: red;
+}
+
+#rTrash {
+  background-color: white;
+  border-color: red;
+  color: red;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 #view {
   background-color: white;
   border-color: black;
   color: black;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 #edit {
   background-color: white;
   border-color: #00e3de;
   color: #00e3de;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+.wheel {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.folders {
+  display: flex;
+  flex-direction: row;
+
+}
+
+#folder-newEntry {
+  background-color: #C5E3F8;
+  border-color: #C5E3F8;
+  justify-content: center;
+  /* margin: 30px 30px 30px 0; */
+}
+
+.subText {
+  display: flex;
+  margin: 0 10px 10px 10px;
 }
