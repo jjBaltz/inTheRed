@@ -4,9 +4,9 @@ import { Button, Image } from 'react-bootstrap';
 
 function Folders() {
   return (
-    <>
+    <div className="folders">
       <Link href="/entry/newEntry" passHref>
-        <Button variant="primary">New Entry</Button>
+        <Button id="folder-newEntry">New Entry</Button>
       </Link>
       <Link href="/entries" passHref>
         <Image
@@ -15,7 +15,7 @@ function Folders() {
           height={100}
         />
       </Link>
-      Submitted
+      <p className="subText">Submitted</p>
       <Link href="/drafts" passHref>
         <Image
           src="../assets/FolderIcon.png"
@@ -23,8 +23,8 @@ function Folders() {
           height={100}
         />
       </Link>
-      Drafts
-    </>
+      <p className="draftText">Drafts</p>
+    </div>
   );
 }
 

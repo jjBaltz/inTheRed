@@ -20,9 +20,14 @@ export default function Resources() {
 
   return (
     <div className="container">
-      <div className="flex-align-items-center">
+      <div className="wheel">
         <Image
           src="../assets/PastelWheel.jpg"
+          width={500}
+          height={500}
+        />
+        <Image
+          src="../assets/EmotionWheel.jpg"
           width={500}
           height={500}
         />
