@@ -204,3 +204,127 @@ body {
   background: #82B4D6;
   border-color: #82B4D6;
 }
+
+#create-draft {
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  align-self: flex-end;
+  position: absolute;
+  background: #C5E3F8;
+  border-color: #C5E3F8;
+}
+#create-draft:hover {
+  background: #82B4D6;
+  border-color: #82B4D6;
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 0 0 0 20px;
+}
+
+.RangeSliders {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 15px;
+  width: 100%;
+  background: white;
+}
+
+input[type="range"] {
+  padding: 5px;
+  margin: 0 0 0 20px;
+  -webkit-appearance: none;
+    appearance: none;
+    background: whitesmoke;
+    width: 50%;
+    overflow: hidden;
+    height: 6px;
+    border-radius: 50px;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: transparent;
+  height: 1px;
+  border-radius: 0.5rem;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+   appearance: none;
+   margin-top: -9px;
+
+   background-color: whitesmoke;
+   height: 20px;
+   width: 20px;
+   max-width: 100%;
+   border-radius: 50%;
+   /* border: 2px solid; */
+   background-size: cover;
+   box-shadow: 407px 0 0 400px whitesmoke;
+}
+
+#range1 {
+  background: linear-gradient(
+    to right,
+    #E01A1A,
+    #EB611F 15%,
+    #f6a723 40%
+  );
+}
+input[id="range1"]::-webkit-slider-thumb {
+  background-color: #f6a723;
+}
+#range2 {
+  background: linear-gradient(
+    to right,
+    #E01A1A,
+    #C57B7F 15%,
+    #a9dce3 40%
+  );
+}
+input[id="range2"]::-webkit-slider-thumb {
+  background-color: #a9dce3;
+}
+#range3 {
+  background: linear-gradient(
+    to right,
+    #E01A1A,
+    #B66F32 15%,
+    #8bc349 40%
+  );
+}
+input[id="range3"]::-webkit-slider-thumb {
+  background-color: #8bc349;
+}
+#range4 {
+  background: linear-gradient(
+    to right,
+    #E01A1A,
+    #C9497E 15%,
+    #B277E2 40%
+  );
+}
+input[id="range4"]::-webkit-slider-thumb {
+  background-color: #B277E2;
+}
+#range5 {
+  background: linear-gradient(
+    to right,
+    #E01A1A,
+    #E57E42 15%,
+    #E9E16A 35%
+  );
+}
+input[id="range5"]::-webkit-slider-thumb {
+  background-color: #E9E16A;
+}
+
+.mb-3 {
+  padding: 0 5px 0 5px;
+  margin: 10px 0 0 0;
+}
