@@ -70,137 +70,141 @@ function EntryForm({ entryObj, draftObj }) {
 
   return (
     <Form onSubmit={[handleSubmitEntry, handleSubmitDraft]}>
-      <h2 className="text-white mt-5">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
+      <div className="entry-form">
+        <h2 className="text-black mt-5">{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</h2>
+        <Button type="submit" id="create-draft" onClick={handleSubmitDraft}>{draftObj.firebaseKey ? 'Update' : 'Save As'} Draft</Button>
 
-      <FloatingLabel className="RangeSlider">
-        <input
-          id="range1"
-          type="range"
-          min={0}
-          max={100}
-          value={formInput.food}
-          name="food"
+        <div className="RangeSliders">
+          <FloatingLabel>
+            <input
+              id="range1"
+              type="range"
+              min={0}
+              max={100}
+              value={formInput.food}
+              name="food"
+              onChange={(e) => {
+                setFormInput((prevState) => ({
+                  ...prevState,
+                  food: e.target.value,
+                }));
+              }}
+            />
+          </FloatingLabel>
+
+          <FloatingLabel>
+            <input
+              id="range2"
+              type="range"
+              min={0}
+              max={100}
+              value={formInput.water}
+              name="water"
+              onChange={(e) => {
+                setFormInput((prevState) => ({
+                  ...prevState,
+                  water: e.target.value,
+                }));
+              }}
+            />
+          </FloatingLabel>
+
+          <FloatingLabel>
+            <input
+              id="range3"
+              type="range"
+              min={0}
+              max={100}
+              value={formInput.energy}
+              name="energy"
+              onChange={(e) => {
+                setFormInput((prevState) => ({
+                  ...prevState,
+                  energy: e.target.value,
+                }));
+              }}
+            />
+          </FloatingLabel>
+
+          <FloatingLabel>
+            <input
+              id="range4"
+              type="range"
+              min={0}
+              max={100}
+              value={formInput.mood}
+              name="mood"
+              onChange={(e) => {
+                setFormInput((prevState) => ({
+                  ...prevState,
+                  mood: e.target.value,
+                }));
+              }}
+            />
+          </FloatingLabel>
+
+          <FloatingLabel>
+            <input
+              id="range5"
+              type="range"
+              min={0}
+              max={100}
+              value={formInput.social}
+              name="social"
+              onChange={(e) => {
+                setFormInput((prevState) => ({
+                  ...prevState,
+                  social: e.target.value,
+                }));
+              }}
+            />
+          </FloatingLabel>
+        </div>
+
+        {/* TITLE INPUT  */}
+        <FloatingLabel controlId="floatingInput1" label="Entry Title" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Entry Title"
+            name="title"
+            value={formInput.title}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
+        {/* DESCRIPTION TEXTAREA  */}
+        <FloatingLabel controlId="floatingTextarea" label="Description" className="mb-3">
+          <Form.Control
+            as="textarea"
+            placeholder="Description"
+            style={{ height: '300px', width: '600px' }}
+            name="description"
+            value={formInput.description}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
+        {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
+        <Form.Check
+          className="text-black mb-3"
+          type="switch"
+          id="favorite"
+          name="favorite"
+          label="Favorite?"
+          checked={formInput.favorite}
           onChange={(e) => {
             setFormInput((prevState) => ({
               ...prevState,
-              food: e.target.value,
+              favorite: e.target.checked,
             }));
           }}
         />
-      </FloatingLabel>
 
-      <FloatingLabel className="RangeSlider">
-        <input
-          id="range2"
-          type="range"
-          min={0}
-          max={100}
-          value={formInput.water}
-          name="water"
-          onChange={(e) => {
-            setFormInput((prevState) => ({
-              ...prevState,
-              water: e.target.value,
-            }));
-          }}
-        />
-      </FloatingLabel>
-
-      <FloatingLabel className="RangeSlider">
-        <input
-          id="range3"
-          type="range"
-          min={0}
-          max={100}
-          value={formInput.energy}
-          name="energy"
-          onChange={(e) => {
-            setFormInput((prevState) => ({
-              ...prevState,
-              energy: e.target.value,
-            }));
-          }}
-        />
-      </FloatingLabel>
-
-      <FloatingLabel className="RangeSlider">
-        <input
-          id="range4"
-          type="range"
-          min={0}
-          max={100}
-          value={formInput.mood}
-          name="mood"
-          onChange={(e) => {
-            setFormInput((prevState) => ({
-              ...prevState,
-              mood: e.target.value,
-            }));
-          }}
-        />
-      </FloatingLabel>
-
-      <FloatingLabel className="RangeSlider">
-        <input
-          id="range5"
-          type="range"
-          min={0}
-          max={100}
-          value={formInput.social}
-          name="social"
-          onChange={(e) => {
-            setFormInput((prevState) => ({
-              ...prevState,
-              social: e.target.value,
-            }));
-          }}
-        />
-      </FloatingLabel>
-
-      {/* TITLE INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="Entry Title" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Entry Title"
-          name="title"
-          value={formInput.title}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* DESCRIPTION TEXTAREA  */}
-      <FloatingLabel controlId="floatingTextarea" label="Description" className="mb-3">
-        <Form.Control
-          as="textarea"
-          placeholder="Description"
-          style={{ height: '300px' }}
-          name="description"
-          value={formInput.description}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
-        id="favorite"
-        name="favorite"
-        label="Favorite?"
-        checked={formInput.favorite}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            favorite: e.target.checked,
-          }));
-        }}
-      />
-
-      {/* SUBMIT BUTTON  */}
-      <Button type="submit" onClick={handleSubmitEntry}>{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</Button>
-      <Button type="submit" onClick={handleSubmitDraft}>{draftObj.firebaseKey ? 'Update' : 'Create'} Draft</Button>
+        {/* SUBMIT BUTTON  */}
+        <Button type="submit" id="create-entry" onClick={handleSubmitEntry}>{entryObj.firebaseKey ? 'Update' : 'Create'} Entry</Button>
+      </div>
     </Form>
   );
 }
