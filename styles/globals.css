@@ -328,3 +328,44 @@ input[id="range5"]::-webkit-slider-thumb {
   padding: 0 5px 0 5px;
   margin: 10px 0 0 0;
 }
+
+.tip {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+  width: 10px;
+  height: 10px;
+}
+ .tip:hover {
+  background: #ccc;
+  border-color: #ccc;
+}
+
+.foodTip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.waterTip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.energyTip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.moodTip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.socialTip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
