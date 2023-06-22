@@ -7,7 +7,7 @@ function NoAuth({ component: Component, pageProps }) {
   return (
     <>
       <NoAuthNavBar />
-      <div className="container">
+      <div className="wrapper">
         <Component {...pageProps} />
       </div>
     </>

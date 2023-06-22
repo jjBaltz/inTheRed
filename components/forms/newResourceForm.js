@@ -15,7 +15,6 @@ const initialState = {
 
 function ResourceForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  // const [resource, setResource] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
