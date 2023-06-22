@@ -47,52 +47,54 @@ function ResourceForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Resource</h2>
+    <Form onSubmit={handleSubmit} style={{ width: '75%' }}>
+      <div className="entry-form d-flex align-items-center justify-content-center">
+        <h2 className="text-black mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Resource</h2>
 
-      {/* TITLE INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="Resource Title" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Resource Title"
-          name="title"
-          value={formInput.title}
-          onChange={handleChange}
-          required
+        {/* TITLE INPUT  */}
+        <FloatingLabel controlId="floatingInput1" label="Resource Title" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Resource Title"
+            name="title"
+            value={formInput.title}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
+        {/* DESCRIPTION TEXTAREA  */}
+        <FloatingLabel controlId="floatingTextarea" label="Description" className="mb-3">
+          <Form.Control
+            as="textarea"
+            placeholder="Description"
+            style={{ height: '100px' }}
+            name="description"
+            value={formInput.description}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
+        {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
+        <Form.Check
+          className="text-black mb-3"
+          type="switch"
+          id="favorite"
+          name="favorite"
+          label="Favorite?"
+          checked={formInput.favorite}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              favorite: e.target.checked,
+            }));
+          }}
         />
-      </FloatingLabel>
 
-      {/* DESCRIPTION TEXTAREA  */}
-      <FloatingLabel controlId="floatingTextarea" label="Description" className="mb-3">
-        <Form.Control
-          as="textarea"
-          placeholder="Description"
-          style={{ height: '100px' }}
-          name="description"
-          value={formInput.description}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
-        id="favorite"
-        name="favorite"
-        label="Favorite?"
-        checked={formInput.favorite}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            favorite: e.target.checked,
-          }));
-        }}
-      />
-
-      {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Resource</Button>
+        {/* SUBMIT BUTTON  */}
+        <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Resource</Button>
+      </div>
     </Form>
   );
 }
