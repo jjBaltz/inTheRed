@@ -207,11 +207,11 @@ body {
 
 #create-draft {
   display: flex;
-  width: 100px;
-  height: 50px;
   align-items: center;
   align-self: flex-end;
   position: absolute;
+  left: 75%;
+  top: 15%;
   background: #C5E3F8;
   border-color: #C5E3F8;
 }
@@ -221,10 +221,9 @@ body {
 }
 
 .entry-form {
-  display: flex;
   flex-direction: column;
-  align-content: center;
-  margin: 0 0 0 20px;
+  width: 100%;
+  margin-left: 15%;
 }
 
 .RangeSliders {
@@ -327,6 +326,7 @@ input[id="range5"]::-webkit-slider-thumb {
 .mb-3 {
   padding: 0 5px 0 5px;
   margin: 10px 0 0 0;
+  width: 100%;
 }
 
 .tip {
