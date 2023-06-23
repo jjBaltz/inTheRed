@@ -16,12 +16,12 @@ export default function ViewResource() {
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="text-black ms-5 details">
-        <h5>
+        <h5 className="re-text">
           {resourceDetails.title}
-          {resourceDetails.resourceObject?.favorite ? ' ♡' : ''}
+          {resourceDetails.resourceObject?.favorite ? ' ☆' : ''}
         </h5>
-        <p>{resourceDetails.description || ''}</p>
         <hr />
+        <p>{resourceDetails.description || ''}</p>
       </div>
     </div>
   );

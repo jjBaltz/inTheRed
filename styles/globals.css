@@ -101,12 +101,19 @@ body {
   margin: 70px 40px 70px 40px;
 }
 
+/* JOURNAL ENTRY CARD STYLING */
 .entry-card {
   max-width: 250px;
   margin: 3px;
   position: relative;
-  border-radius: 10px;
-  background: linear-gradient(to bottom, #F9F999, #6BE0FA, #DDB3FF);
+  border-radius: 8px;
+  /* background: #A4CCE7; */
+}
+.entry-title {
+  max-width: 175px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-text-f {
@@ -145,8 +152,76 @@ body {
   background-color: #E9E16A;
   color: white;
   font-size: small;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-color: #3c3c3c;
   margin: 3px 0 3px 0;
   padding: 0 0 0 10px;
+}
+
+/* ENTRY/DRAFT DESCRIPTION PAGE */
+.title-text {
+  color: #C5E3F8;
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.input-values {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.display-text {
+  display: flex;
+  margin: 0 10%;
+  max-width: 100%;
+}
+.display-f {
+  background: linear-gradient(
+    to right,
+    #f6a723 60%,
+    #EB611F 90%,
+    #E01A1A
+  );
+  color: white;
+}
+.display-w {
+  background: linear-gradient(
+    to right,
+    #a9dce3 60%, 
+    #C57B7F 90%,
+    #E01A1A
+  );
+  color: white;
+}
+.display-e {
+  background: linear-gradient(
+    to right,
+    #8bc349 60%, 
+    #B66F32 90%,
+    #E01A1A
+  );
+  color: white;
+}
+.display-m {
+  background: linear-gradient(
+    to right,
+    #B277E2 60%, 
+    #C9497E 90%,
+    #E01A1A
+  );
+  color: white;
+}
+.display-s {
+  background: linear-gradient(
+    to right,
+    #E9E16A 60%, 
+    #E57E42 90%,
+    #E01A1A
+  );
+  color: white;
 }
 
 #trash {
@@ -188,6 +263,7 @@ body {
   left: 8px;
 }
 
+/* RESOURCES PAGES */
 .wheel {
   display: flex;
   justify-content: space-evenly;
@@ -202,6 +278,20 @@ body {
 .newSource:hover {
   background: #82B4D6;
   border-color: #82B4D6;
+}
+.newRe {
+  background: white;
+  border-color: #C5E3F8;
+  color: #C5E3F8;
+}
+.newRe:hover {
+  background: #C5E3F8;
+  border-color: white;
+  color: white;
+}
+
+.re-text {
+  color: #C5E3F8;
 }
 
 /* JOURNAL FOLDERS PAGE */

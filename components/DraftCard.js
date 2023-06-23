@@ -13,7 +13,7 @@ function DraftCard({ draftObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card style={{ width: '16rem', margin: '10px' }}>
       <Card.Body>
         <Card.Title>{draftObj.title}</Card.Title>
         <p className="card-text-f">{draftObj.food}</p>
@@ -21,7 +21,7 @@ function DraftCard({ draftObj, onUpdate }) {
         <p className="card-text-e">{draftObj.energy}</p>
         <p className="card-text-m">{draftObj.mood}</p>
         <p className="card-text-s">{draftObj.social}</p>
-        <p className="card-text">{draftObj.description}</p>
+        {/* <p className="card-text">{draftObj.description}</p> */}
         <Link href={`/entry/${draftObj.firebaseKey}`} passHref>
           <Button id="view" className="m-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
