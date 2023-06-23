@@ -1,62 +1,25 @@
-# React/Next.js Template
+# inTheRed [![Netlify Status](https://api.netlify.com/api/v1/badges/e435db10-4a55-4a77-8e94-3e9ee81e285e/deploy-status)](https://app.netlify.com/sites/inthered/deploys)
 
-[See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
+inTheRed was created to record in an interactive journal form the way you are feeling per entry. It supplies the user with range sliders to more accurately calculate their moodlet levels - and whether they are in the red and the user should be aware of how frequently they are.
+It’s obviously not fool proof, but it could be the start of the user getting a better identifying eye for themselves in their day to day by asking basic self-care check-ins. Have you eaten recently? Have you had enough water so far in the day? How are you feeling in your body at this moment? Do you feel reclusive and need to talk to someone today?
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Using axios](#using-axios)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+## About the User
+- The ideal user for this application is anyone who would like to practice mindfulness in journaling.
+- They have thoughts and feelings about themselves or their situation day to day to then turn into a journal entry or saving a resource they found helpful to their self-care.
+- The problem this app solves for them is it allows them to take breaks, touch base with themselves, identify potential stressors or conflicts that make them feel a certain way, and to catalogue it so that they can come back to it later to see an over-arching dataset of their moodlets.
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+## Features 
+- User Page: the splash profile page will show the a group of four submitted journal entries and two links to immediately create a new entry, or go to the submitted vs drafts folders
+- Resources: the user will be able to click into their resources they have found relevant, helpful, or something to save for later 
+- Journal Entry Form: the range sliders will help users focus on different moodlet aspects so that they will be better about identifying and associating feelings as well as being able to write about it
+- Folders: there is a submitted entries folder for all the entries the user has completed and cannot edit after submittion to save the authenticity of the state of mind of the user, then there are drafts if the user is pulled away for whatever reason and they do not want to lose their work
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+## Relevant Links 
+- [Wireframes] (https://www.figma.com/file/9Z3m8CuYNg6ohwPw3YUTcz/inTheRed-Wireframe?type=design&node-id=0%3A1&t=tZlTtBcg1p5uMEq5-1)
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+- [ERD] (https://lucid.app/lucidchart/59f1ab13-808e-431a-9090-b67807ed5a63/edit?beaconFlowId=2070D358BD96F271&invitationId=inv_828cded7-f1c1-401a-bb1d-c426216df684&page=0_0#)
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+## Project Screenshots 
 
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
-
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
-
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
-
-- Build Command: `npm run build`
-- Publish directory: `.next`
-
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
-
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributors
+- [Jasper Baltz](https://github.com//jjBaltz)
