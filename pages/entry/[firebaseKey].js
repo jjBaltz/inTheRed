@@ -14,19 +14,21 @@ function ViewEntry() {
   }, [firebaseKey]);
 
   return (
-    <div className="mt-5 d-flex flex-wrap">
-      <div className="text-black ms-5 details">
-        <h5>
+    <div className="mt-4 d-flex flex-wrap">
+      <div className="ms-4 details">
+        <h3 className="title-text">
           {entryDetails.title}
-          {/* {entryDetails.entryObject?.favorite ? ' ☆' : ''} */}
-        </h5>
-        <p className="card-text">{entryDetails.food}</p>
-        <p className="card-text">{entryDetails.water}</p>
-        <p className="card-text">{entryDetails.energy}</p>
-        <p className="card-text">{entryDetails.mood}</p>
-        <p className="card-text">{entryDetails.social}</p>
-        <p className="card-text">{entryDetails.description}</p>
+          {entryDetails.entryObject?.favorite ? ' ☆' : ''}
+        </h3>
+        <div className="ms-4 input-values">
+          <p className="display-f">{entryDetails.food}</p>
+          <p className="display-w">{entryDetails.water}</p>
+          <p className="display-e">{entryDetails.energy}</p>
+          <p className="display-m">{entryDetails.mood}</p>
+          <p className="display-s">{entryDetails.social}</p>
+        </div>
         <hr />
+        <p className="display-text">{entryDetails.description}</p>
       </div>
     </div>
   );

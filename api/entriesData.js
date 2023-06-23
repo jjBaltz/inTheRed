@@ -95,7 +95,6 @@ const updateEntry = (payload) => new Promise((resolve, reject) => {
 export {
   updateEntry,
   createEntry,
-  // createDraft,
   getSingleEntry,
   deleteEntry,
   getSubmittedEntries,

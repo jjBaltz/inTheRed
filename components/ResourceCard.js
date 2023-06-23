@@ -16,7 +16,7 @@ function ResourceCard({ resourceObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
         <Card.Title>{resourceObj.title}</Card.Title>
-        <p className="card-text bold">{resourceObj.favorite && <span>Favorite<br /></span> } {resourceObj.description}</p>
+        <p className="card-text bold">{resourceObj.favorite && <span>☆<br /></span> } {resourceObj.description}</p>
         <Link href={`/resource/${resourceObj.firebaseKey}`} passHref>
           <Button id="view" className="m-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">

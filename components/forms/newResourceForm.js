@@ -92,7 +92,7 @@ function ResourceForm({ obj }) {
         />
 
         {/* SUBMIT BUTTON  */}
-        <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Resource</Button>
+        <Button type="submit" className="newRe">{obj.firebaseKey ? 'Update' : 'Create'} Resource</Button>
       </div>
     </Form>
   );
