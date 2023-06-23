@@ -177,6 +177,7 @@ body {
   display: flex;
   margin: 0 10%;
   max-width: 100%;
+  white-space: pre-wrap;
 }
 .display-f {
   background: linear-gradient(
